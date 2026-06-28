@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "[Embedded Python3 Interpreter Stub]"
+echo "Arguments: $@"

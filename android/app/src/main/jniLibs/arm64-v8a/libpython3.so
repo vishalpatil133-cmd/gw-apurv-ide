@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "[Embedded Python Interpreter Stub via JNI]"
+echo "Arguments: $@"

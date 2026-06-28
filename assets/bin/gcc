@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "[Embedded GCC Compiler Stub]"
+echo "Arguments: $@"
