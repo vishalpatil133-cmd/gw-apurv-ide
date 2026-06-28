@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'dart:convert';
 import 'dart:developer' as developer;
 import 'package:http/http.dart' as http;
+import 'package:firebase_auth/firebase_auth.dart';
 
 // ... Class definitions and helper functions remain unchanged ...
 
@@ -226,5 +227,32 @@ class GithubAuthService {
       body: jsonEncode(bodyMap),
     );
     return response.statusCode == 200 || response.statusCode == 201;
+  }
+
+  /// Firebase Auth चा वापर करून GitHub लॉगिन फ्लो सुरू करतो.
+  /// यशस्वी लॉगिन झाल्यावर [UserCredential] रिटर्न करतो.
+  Future<UserCredential?> signInWithGitHub() async {
+    try {
+      final GithubAuthProvider gitHubProvider = GithubAuthProvider();
+      
+      // स्कोप्स ॲड करण्यासाठी (उदा. repo ॲक्सेस)
+      gitHubProvider.addScope('repo');
+      gitHubProvider.addScope('workflow');
+
+      final UserCredential userCredential = 
+          await FirebaseAuth.instance.signInWithProvider(gitHubProvider);
+
+      final User? user = userCredential.user;
+      if (user != null) {
+        developer.log("[Firebase GitHub Auth] लॉगिन यशस्वी! युजर: ${user.displayName}");
+      }
+      return userCredential;
+    } on FirebaseAuthException catch (e) {
+      developer.log("[Firebase GitHub Auth] Error: [${e.code}] - ${e.message}");
+      rethrow;
+    } catch (e) {
+      developer.log("[Firebase GitHub Auth] Unexpected error: $e");
+      return null;
+    }
   }
 }

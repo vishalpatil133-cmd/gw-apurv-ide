@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "237274301468",
+    "project_id": "gw-apurv-ide",
+    "storage_bucket": "gw-apurv-ide.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237274301468:android:b2b047acc3831c5df18bd9",
+        "android_client_info": {
+          "package_name": "com.example.antigravity_ide"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-nIcLk3f0yDy8oKGWulAWrKRxly3H7B4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
