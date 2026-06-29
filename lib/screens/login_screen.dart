@@ -100,8 +100,14 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 300,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColors.neonCyan.withOpacity(0.08),
-                blurRadius: 100,
+                color: AppColors.neonCyan.withOpacity(0.02),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.neonCyan.withOpacity(0.08),
+                    blurRadius: 100,
+                    spreadRadius: 50,
+                  )
+                ],
               ),
             ),
           ),
@@ -113,8 +119,14 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 300,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColors.neonPurple.withOpacity(0.08),
-                blurRadius: 100,
+                color: AppColors.neonPurple.withOpacity(0.02),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.neonPurple.withOpacity(0.08),
+                    blurRadius: 100,
+                    spreadRadius: 50,
+                  )
+                ],
               ),
             ),
           ),
@@ -183,14 +195,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 36,
                         child: ElevatedButton.icon(
                           onPressed: _handleGoogleSignIn,
-                          icon: Image.asset(
-                            'assets/google_logo.png', // Fallback asset or icon if not present
-                            height: 14,
-                            errorBuilder: (context, error, stackTrace) => const Icon(
-                              Icons.g_mobiledata,
-                              color: Colors.white,
-                              size: 18,
-                            ),
+                          icon: const Icon(
+                            Icons.g_mobiledata,
+                            color: Colors.white,
+                            size: 24,
                           ),
                           label: Text(
                             "Sign In with Google",

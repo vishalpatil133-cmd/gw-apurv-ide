@@ -5,9 +5,17 @@ import 'providers/ide_provider.dart';
 import 'theme/app_theme.dart';
 import 'screens/home_screen.dart';
 import 'screens/video_splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Firebase using native config bindings
+  try {
+    await Firebase.initializeApp();
+  } catch (e) {
+    debugPrint("Firebase initialization failed: $e");
+  }
 
   // Enable Full Screen Immersive Mode
   await SystemChrome.setEnabledSystemUIMode(
